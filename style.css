@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #222;
+}
+header {
+    text-align: center;
+    padding: 50px 20px 30px;
+}
+header h1 {
+    font-size: 42px;
+    color: #243b53;
+    margin-bottom: 10px;
+}
+header p {
+    color: #6b7280;
+    font-size: 17px;
+}
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+.filter-btn {
+    border: none;
+    background-color: white;
+    color: #243b53;
+    padding: 11px 22px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: #243b53;
+    color: white;
+    transform: translateY(-2px);
+}
+.gallery {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    padding-bottom: 50px;
+}
+.gallery-item {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+.image-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 18px 18px;
+    color: white;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+    transform: translateY(100%);
+    transition: 0.4s ease;
+}
+.gallery-item:hover .image-info {
+    transform: translateY(0);
+}
+.image-info h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.image-info p {
+    font-size: 14px;
+}
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.lightbox.show {
+    display: flex;
+}
+.lightbox-content {
+    text-align: center;
+    color: white;
+    max-width: 80%;
+}
+.lightbox-content img {
+    max-width: 80vw;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+.lightbox-content h2 {
+    margin-top: 15px;
+    font-size: 24px;
+}
+.lightbox-content p {
+    margin-top: 5px;
+    color: #cbd5e1;
+}
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.close-btn:hover {
+    color: #f87171;
+    transform: rotate(90deg);
+}
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.nav-btn:hover {
+    background-color: #243b53;
+}
+.prev-btn {
+    left: 30px;
+}
+.next-btn {
+    right: 30px;
+}
+@media (max-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    header h1 {
+        font-size: 36px;
+    }
+}
+@media (max-width: 600px) {
+    header {
+        padding-top: 35px;
+    }
+    header h1 {
+        font-size: 30px;
+    }
+    header p {
+        font-size: 15px;
+    }
+    .gallery {
+        grid-template-columns: 1fr;
+        width: 88%;
+    }
+    .gallery-item {
+        height: 260px;
+    }
+    .nav-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 22px;
+    }
+    .prev-btn {
+        left: 10px;
+    }
+    .next-btn {
+        right: 10px;
+    }
+    .lightbox-content {
+        max-width: 85%;
+    }
+    .lightbox-content img {
+        max-width: 85vw;
+        max-height: 65vh;
+    }
+    .close-btn {
+        right: 15px;
+        top: 10px;
+    }
+}
